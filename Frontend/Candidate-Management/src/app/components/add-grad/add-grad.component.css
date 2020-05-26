@@ -1,0 +1,62 @@
+/* input{
+    padding: 5px;
+    margin:5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #615b5b;
+    border-width: 1px;
+    border-radius: 5px;
+    } */
+.formContainer{
+   margin-left: 22%;
+   margin-right: 22%;
+   align-items: center;
+   padding: 20px;
+   border-radius: 2%; 
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+table{
+    margin-left: 2%;
+}
+.skills{
+    
+    color: white;
+    text-align: center;
+    width: 10%;
+}
+.close{
+    background-color: #0d8cd1;
+    border:none;
+
+}
+.skillsDisplay{
+    padding: 10px;
+    padding-left: 30px;
+}
+.skillsTitle{
+    padding: 10px;
+    padding-left: 30px;
+}
+.skillsInput{
+    padding: 10px;
+    padding-left: 160px;
+}
+
+.formCategory{
+        margin-top: 1%;
+        margin-bottom: 2%;
+        font: 35px Candara;/* I picked this font because it's the closest looking 'web safe' font http://cssfontstack.com/ */
+      color: #240654;
+      text-transform: uppercase;
+}
+
+
+  mat-form-field{
+      margin: 2%;
+      margin-left: 5%;
+      margin-right: 5%;
+  }
+  .ll{
+      text-align: center;
+  }
