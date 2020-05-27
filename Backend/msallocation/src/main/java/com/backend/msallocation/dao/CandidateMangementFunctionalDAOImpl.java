@@ -9,8 +9,9 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import com.backend.msallocation.constants.Parameters;
 import com.backend.msallocation.constants.Queries;
+import com.backend.msallocation.model.Skill;
+import com.backend.msallocation.rowMapper.SkillsRowMapper;
 
 @Repository
 public class CandidateMangementFunctionalDAOImpl implements CandidateMangementFunctionalDAO {
@@ -18,13 +19,11 @@ public class CandidateMangementFunctionalDAOImpl implements CandidateMangementFu
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
 	Queries query;
-	
+
 	@Override
-	public List<Map<String, Object>> getSkills() {
-		SqlParameterSource parameters = new MapSqlParameterSource();
-		return jdbcTemplate.queryForList(query.GET_SKILLS_LIST,parameters);
+	public List<Skill> getSkills() {
+	
+		return jdbcTemplate.query(query.GET_SKILLS_LIST,SkillsRowMapper.skillsRowMapperLambda);
 	}
-	
-	
 
 }

@@ -18,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import {MatButtonModule,MatIconModule} from '@angular/material';
-import {MatProgressBarModule} from '@angular/material'
+import {MatProgressBarModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 
 export function socialConfigs() {  
   const config = new AuthServiceConfig(  
@@ -55,7 +56,8 @@ export function socialConfigs() {
     MatNativeDateModule,        
     MatIconModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSelectModule
   ],
   providers: [
     AuthService,  

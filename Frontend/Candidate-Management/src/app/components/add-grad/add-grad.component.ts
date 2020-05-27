@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import {SkillsServiceService} from '../../providers/skills-service.service';
 @Component({
   selector: 'app-add-grad',
   templateUrl: './add-grad.component.html',
@@ -8,45 +8,49 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddGradComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private skillsService:SkillsServiceService) { }
+  skillsList;
+  newSkill;
   ngOnInit() {
     //this.personalDetails=true;
+    this.skillsService.fetchSkills().subscribe((data)=>{console.log(data)
+    this.skillsList=data})
   }
   progress=0;
-  skills: [String] = ['java'];
+  skills=[];
   personalDetails: boolean = false;
   educationalDetails:boolean=true;
   professionalDetails:boolean=true;
   submitform:boolean=true;
 
-  gradFirstName = new FormControl('', [Validators.required]);
-  gradMiddleName = new FormControl();
-  gradLastName = new FormControl();
-  email = new FormControl('', [Validators.required, Validators.email]);
-  dob = new FormControl();
-  street = new FormControl();
-  city = new FormControl();
-  state = new FormControl();
+  gradFirstName = new FormControl('', [Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
+  gradMiddleName = new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
+  gradLastName = new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
+  email = new FormControl('', [Validators.required, Validators.email,Validators.maxLength(255)]);
+  street = new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
+  city = new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
+  state = new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
   gender = new FormControl('male');
-  contact = new FormControl();
+  contact = new FormControl(0,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]);
 
-  institute =new FormControl('', [Validators.required]);
-  degree=new FormControl('', [Validators.required]);
-  branch=new FormControl('', [Validators.required]);
+  institute =new FormControl('', [Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
+  degree=new FormControl('', [Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
+  branch=new FormControl('', [Validators.required,Validators.minLength(1),Validators.maxLength(20)]);
 
-  dateOfJoining = new FormControl('', [Validators.required]);
-  joiningLocation=new FormControl('', [Validators.required]);
-  newSkill= new FormControl('');
+  dateOfJoining = new FormControl('',[Validators.required]);
+  joiningLocation=new FormControl('', [Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
+  //newSkill= new FormControl(-1,[Validators.required,Validators.minLength(1),Validators.maxLength(50)]);
 
   submitData() {
     // console.log(this.gradDetails.value)
   }
   addskill() {
 
-    if (this.newSkill.value != '') {
-      this.skills.push(this.newSkill.value);
-      this.newSkill= new FormControl('');
+    console.log(this.newSkill)
+    
+    if ( this.newSkill!=undefined && this.newSkill.skillName != '') {
+      this.skills.push(this.newSkill);
+
     }
   }
   removeskill(skill) {

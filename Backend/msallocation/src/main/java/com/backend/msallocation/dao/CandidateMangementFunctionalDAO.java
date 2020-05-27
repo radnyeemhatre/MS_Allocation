@@ -3,8 +3,9 @@ package com.backend.msallocation.dao;
 import java.util.List;
 import java.util.Map;
 
-public interface CandidateMangementFunctionalDAO {
+import com.backend.msallocation.model.Skill;
 
-	List<Map<String, Object>> getSkills();
+public interface CandidateMangementFunctionalDAO {
+	List<Skill> getSkills();
 
 }

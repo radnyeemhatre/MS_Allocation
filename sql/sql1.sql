@@ -26,12 +26,13 @@ street varchar(50),
 city varchar(50),
 state varchar(50)
 );
-
+drop table grad_skills;
 create table grad_skills(
 grad_id int references grad_details(grad_id),
-skill_id int references skills(skill_id),
+skillname varchar(50) references skills(skillname),
 skill varchar(50)
 );
 
 insert into skills(skillname) value("Other");
+update skills set skillname='React Native' where skill_id=4;
 select * from skills;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.backend.msallocation.model.Skill;
 import com.backend.msallocation.service.CandidateManagementFunctionalService;
 
 @RestController
@@ -19,10 +20,10 @@ public class CandidateManagementFunctionalController {
 	 CandidateManagementFunctionalService CMFunctionalService;
 	
 	@GetMapping("/getSkillsList")
-	public List<Map<String, Object>> getSkills()
+	public List<Skill> getSkills()
 	{
-		List<Map<String, Object>> skillsList=CMFunctionalService.getSkills();
-		return skillsList;
+		//List<Map<String, Object>> skillsList=CMFunctionalService.getSkills();
+		return CMFunctionalService.getSkills();
 	}
 	
 
