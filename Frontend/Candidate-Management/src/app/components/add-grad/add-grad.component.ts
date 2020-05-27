@@ -18,6 +18,7 @@ export class AddGradComponent implements OnInit {
   personalDetails: boolean = false;
   educationalDetails:boolean=true;
   professionalDetails:boolean=true;
+  submitform:boolean=true;
 
   gradFirstName = new FormControl('', [Validators.required]);
   gradMiddleName = new FormControl();
@@ -59,8 +60,10 @@ export class AddGradComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
   proceedToED(){
-    this.personalDetails=true;
     this.educationalDetails=false;
+    this.personalDetails=true;
+    this.professionalDetails=true;
+    this.submitform=true;
     this.progress=33
     //console.log(this.professionalDetails)
   }
@@ -68,26 +71,29 @@ export class AddGradComponent implements OnInit {
   {
     this.professionalDetails=false;
     this.educationalDetails=true;
+    this.personalDetails=true;
+    this.submitform=true;
     this.progress=66
     //console.log(this.professionalDetails)
   }
-  backToper()
+  proceedtoPSD()
   {
-    this.personalDetails=false;
+    this.professionalDetails=true;
     this.educationalDetails=true;
+    this.personalDetails=false;
+    this.submitform=true;
     this.progress=0
   }
-  submitForm()
+  proceedtoSubmit()
   {
     this.educationalDetails=true;
     this.professionalDetails=true;
     this.personalDetails=true;
+    this.submitform=false;
     this.progress=100
   }
-  backToED(){
-    this.professionalDetails=true;
-    this.educationalDetails=false;
-    this.progress=33
+  submitForm()
+  {
+    
   }
 }
-

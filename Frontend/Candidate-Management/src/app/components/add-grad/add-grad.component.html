@@ -1,194 +1,278 @@
-<p>add-grad works!</p>
-<div class="formContainer">
-    <mat-progress-bar mode="determinate" value="{{progress}}"></mat-progress-bar>
-    <form>
-        <div [hidden] = "personalDetails">
-            <div class="ll"><label class="formCategory">Personal Details</label></div>
-            <table>
-                <tr>
-                    <td>Name:</td>
-                </tr>
-                <tr>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>Firstname</mat-label>
-                            <input matInput [formControl]="gradFirstName" required>
-                        </mat-form-field>
-                    </td>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>Middlename</mat-label>
-                            <input matInput [formControl]="gradMiddleName" required>
-                        </mat-form-field>
-                    </td>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>Lastname</mat-label>
-                            <input matInput [formControl]="gradLastName" required>
-                        </mat-form-field>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td style="display: inline">
-                        <mat-form-field>
-                            <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                        </mat-form-field>
-                    </td>
-                    <td><i class="material-icons">email</i></td>
-                </tr>
-                <tr>
-                    <td>Contact:</td>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>Enter contact number</mat-label>
-                            <input placeholder="9999999999" matInput [formControl]="contact" required>
-                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                        </mat-form-field>
-                    </td>
-                    <td><i class="material-icons">call</i></td>
-                </tr>
-                <tr>
-                    <td>Address:</td>
-                </tr>
-                <tr>
-                    <td>
-                        <table>
-                            <tr>
-                                <td>
-                                    <mat-form-field>
-                                        <mat-label>Street</mat-label>
-                                        <input matInput [formControl]="street" required>
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <mat-form-field>
-                                        <mat-label>City</mat-label>
-                                        <input matInput [formControl]="city" required>
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <mat-form-field>
-                                        <mat-label>State</mat-label>
-                                        <input matInput [formControl]="state" required>
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+<div>
+    <div class="heading">ADD NEW CANDIDATE</div>
+    <div class="formContainer">
+        <div class="status">
+            <div class="statusTitle">Completion Status : {{progress}} %</div>
             <div>
-                <button mat-raised-button color="primary" (click)="proceedToED()">Proceed</button>
+                <mat-progress-bar  mode="determinate" value="{{progress}}" ></mat-progress-bar>
             </div>
         </div>
-        <div [hidden] ="educationalDetails">
-            <div class="ll"><label class="formCategory">Educational Details</label></div>
-            <div>
-            <table>
-                <tr>
-                    <td>Institute:</td>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>Institute Name</mat-label>
-                            <input matInput [formControl]="institute" required>
-                        </mat-form-field>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Highest Qualification:</td>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>Enter Qualification</mat-label>
-                            <input matInput placeholder="eg: BTech" [formControl]="degree" required>
-                        </mat-form-field>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Branch:</td>
-                    <td>
-                        <mat-form-field>
-                            <mat-label>Enter your branch</mat-label>
-                            <input matInput [formControl]="branch" required>
-                            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                        </mat-form-field>
-                    </td>
-                </tr>
-            </table>
-        </div>
-            <div><button mat-raised-button color="primary" (click)="proceedToPD()">Proceed</button>
-                <button mat-raised-button color="warn" (click)="backToper()">Back</button>
-            </div>
-        </div>
-        <div [hidden] ="professionalDetails">
-            <div class="ll"><label class="formCategory">Professional Details</label></div>
-            <div>
+        <form>
+            <div [hidden]="personalDetails">
+                <div class="ll"><label class="formCategory">Personal Details</label></div>
                 <table>
                     <tr>
-                        <td>Date of Joining:</td>
+                        <td>Name:</td>
+                    </tr>
+                    <tr>
                         <td>
                             <mat-form-field>
-                                <mat-label>Set Joining Date</mat-label>
-                                <input matInput [matDatepicker]="picker" [formControl]="dateOfJoining" required>
-                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
+                                <mat-label>Firstname</mat-label>
+                                <input matInput [formControl]="gradFirstName" required>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Middlename</mat-label>
+                                <input matInput [formControl]="gradMiddleName" required>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Lastname</mat-label>
+                                <input matInput [formControl]="gradLastName" required>
                             </mat-form-field>
                         </td>
                     </tr>
                     <tr>
-                        <td>Location:</td>
-                        <td>
+                        <td>Email:</td>
+                        <td style="display: inline">
                             <mat-form-field>
-                                <mat-label>Joining Location</mat-label>
-                                <input matInput placeholder="eg: Mumbai" [formControl]="joiningLocation" required>
+                                <input matInput placeholder="pat@example.com" [formControl]="email" required>
                             </mat-form-field>
                         </td>
-                        <td><i class="material-icons">location_on</i></td>
+                        <td><i class="material-icons">email</i></td>
+                    </tr>
+                    <tr>
+                        <td>Contact:</td>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Enter contact number</mat-label>
+                                <input placeholder="9999999999" matInput [formControl]="contact" required>
+                                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                            </mat-form-field>
+                        </td>
+                        <td><i class="material-icons">call</i></td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <mat-label>Street</mat-label>
+                                            <input matInput [formControl]="street" required>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <mat-label>City</mat-label>
+                                            <input matInput [formControl]="city" required>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <mat-label>State</mat-label>
+                                            <input matInput [formControl]="state" required>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
                     </tr>
                 </table>
+                <div>
+                    <button mat-raised-button color="primary" (click)="proceedToED()">Proceed</button>
+                </div>
             </div>
-            <div>
-                <table>
-                    <tr>
-                        <td>Skills:</td>
-                        <td class="skillsInput">
-                    <tr>
-                         <td><input matInput type="text" placeholder="Skill" [formControl]="newSkill" /></td>
-                         <td>
-                             <button mat-mini-fab color="primary" (click)="addskill()">
-                                +
-                             </button>
-                         </td>
-                        <!-- <td><button mat-mini-fab color="primary" (click)="addskill()">
+            <div [hidden]="educationalDetails">
+                <div class="ll"><label class="formCategory">Educational Details</label></div>
+                <div>
+                    <table>
+                        <tr>
+                            <td>Institute:</td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-label>Institute Name</mat-label>
+                                    <input matInput [formControl]="institute" required>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Highest Qualification:</td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-label>Enter Qualification</mat-label>
+                                    <input matInput placeholder="eg: BTech" [formControl]="degree" required>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Branch:</td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-label>Enter your branch</mat-label>
+                                    <input matInput [formControl]="branch" required>
+                                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <button mat-raised-button color="warn" (click)="proceedtoPSD()">Back</button>
+                    <button mat-raised-button color="primary" (click)="proceedToPD()">Proceed</button>
+                </div>
+            </div>
+            <div [hidden]="professionalDetails">
+                <div class="ll"><label class="formCategory">Professional Details</label></div>
+                <div>
+                    <table>
+                        <tr>
+                            <td>Date of Joining:</td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-label>Set Joining Date</mat-label>
+                                    <input matInput [matDatepicker]="picker" [formControl]="dateOfJoining" required>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Location:</td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-label>Joining Location</mat-label>
+                                    <input matInput placeholder="eg: Mumbai" [formControl]="joiningLocation" required>
+                                </mat-form-field>
+                            </td>
+                            <td><i class="material-icons">location_on</i></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <td>Skills:</td>
+                            <td class="skillsInput">
+                        <tr>
+                            <td><input matInput type="text" placeholder="Skill" [formControl]="newSkill" /></td>
+                            <td>
+                                <button mat-mini-fab color="primary" (click)="addskill()">
+                                    +
+                                </button>
+                            </td>
+                            <!-- <td><button mat-mini-fab color="primary" (click)="addskill()">
                             <mat-icons>add</mat-icon>
                          </button></td>  -->
-    
-                    </tr>
-                    </td>
-                    <td class="skillsDisplay">
-                        <table>
-                            <tr *ngFor="let skill of skills;let i=index">
-                                <td class="skills">
-                                    <button mat-raised-button color="primary" (click)="removeskill(i)">{{skill}}
-                                        &nbsp;-</button>
-                                </td>
+
+                        </tr>
+                        </td>
+                        <td class="skillsDisplay">
+                            <table>
+                                <tr *ngFor="let skill of skills;let i=index">
+                                    <td class="skills">
+                                        <button mat-raised-button color="primary" (click)="removeskill(i)">{{skill}}
+                                            &nbsp;-</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <button mat-raised-button color="warn" (click)="proceedToED()">Back</button>
+                    <button mat-raised-button color="primary" (click)="proceedtoSubmit()">Proceed</button>
+                </div>
+            </div>
+            <div [hidden]="submitform">
+                <div class="warning">* Please Confirm Entered Details</div>
+                 <div>
+                  <div class="confirmDetailsCategory">Personal Details</div>
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td>{{gradFirstName.value}}</td>
+                            <td>{{gradMiddleName.value}}</td>
+                            <td>{{gradLastName.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{email.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>Contact:</td>
+                            <td>{{contact.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td>
+                            <tr>
+                                <td>{{street.value}}</td>
+                                <td>{{city.value}}</td>
+                                <td>{{state.value}}</td>
                             </tr>
-                        </table>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                    </tr>
-                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                      <div class="confirmDetailsCategory">Educational Details</div>
+                    <table>
+                        <tr>
+                            <td>Institute:</td>
+                            <td>{{institute.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>Degree:</td>
+                            <td>{{degree.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>Branch:</td>
+                            <td>{{branch.value}}</td>
+                        </tr>
+                    </table>
+
+                   <div class="confirmDetailsCategory">Professional Details</div>
+                    <table>
+                         <tr>
+                            <td>Date of Joining:</td>
+                            <td>{{dateOfJoining.value}}</td>
+                        </tr>
+                       <tr>
+                            <td>Joining Location:</td>
+                            <td>{{joiningLocation.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>Skills:</td>
+                            <td>
+                                <table>
+                                    <tr *ngFor="let skill of skills">
+                                        <td >
+                                           {{skill}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table> 
+                </div>
+                <div>
+                    <button mat-raised-button color="warn" (click)="proceedToPD()">Change Details</button>
+                    <button mat-raised-button color="primary" (click)="Submit()">Add Candidate</button>
+                </div>
             </div>
-            <div><button mat-raised-button color="primary" (click)="submitForm()">Proceed</button>
-                <button mat-raised-button color="warn" (click)="backToED()">Back</button>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
