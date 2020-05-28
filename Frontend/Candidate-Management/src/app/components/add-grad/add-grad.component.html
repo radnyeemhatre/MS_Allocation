@@ -1,4 +1,4 @@
-<div>
+<div style="padding-bottom: 2%;">
     <div class="heading">ADD NEW CANDIDATE</div>
     <div class="formContainer">
         <div class="status">
@@ -19,7 +19,7 @@
                             <mat-form-field>
                                 <mat-label>Firstname</mat-label>
                                 <input matInput [formControl]="gradFirstName" required>
-                            </mat-form-field>
+                            </mat-form-field> 
                         </td>
                         <td>
                             <mat-form-field>
@@ -32,6 +32,16 @@
                                 <mat-label>Lastname</mat-label>
                                 <input matInput [formControl]="gradLastName" required>
                             </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <mat-radio-group aria-label="Select an option" [formControl]="gender">
+                                <mat-radio-button value="Male">Male</mat-radio-button>
+                                <mat-radio-button value="Female">Female</mat-radio-button>
+                                <mat-radio-button value="Others">Others</mat-radio-button>
+                              </mat-radio-group>
                         </td>
                     </tr>
                     <tr>
@@ -63,10 +73,20 @@
                                 <tr>
                                     <td>
                                         <mat-form-field>
+                                            <mat-label>House No</mat-label>
+                                            <input matInput [formControl]="houseNo" required>
+                                        </mat-form-field>
+                                    </td>
+                                    <td><mat-icon>house</mat-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
                                             <mat-label>Street</mat-label>
                                             <input matInput [formControl]="street" required>
                                         </mat-form-field>
                                     </td>
+                                    <td><mat-icon>add_road</mat-icon></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -74,7 +94,7 @@
                                             <mat-label>City</mat-label>
                                             <input matInput [formControl]="city" required>
                                         </mat-form-field>
-                                    </td>
+                                    </td> <td><mat-icon>location_city</mat-icon></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -83,13 +103,24 @@
                                             <input matInput [formControl]="state" required>
                                         </mat-form-field>
                                     </td>
+                                    <td><mat-icon>map</mat-icon></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <mat-label>Zipcode</mat-label>
+                                            <input matInput type="number" [formControl]="zipcode" required>
+                                        </mat-form-field>
+                                    </td>
+                                    <td><mat-icon>navigation</mat-icon></td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
                 </table>
-                <div>
-                    <button mat-raised-button color="primary" (click)="proceedToED()">Proceed</button>
+                <div class="inputErr" *ngIf="inputError"> {{errorMsg}}</div>
+                <div style="text-align: right;">
+                    <button mat-raised-button color="primary" class="proceed" (click)="proceedToED()">Proceed</button>
                 </div>
             </div>
             <div [hidden]="educationalDetails">
@@ -104,6 +135,7 @@
                                     <input matInput [formControl]="institute" required>
                                 </mat-form-field>
                             </td>
+                            <td><mat-icon>account_balance</mat-icon></td>
                         </tr>
                         <tr>
                             <td>Highest Qualification:</td>
@@ -113,6 +145,7 @@
                                     <input matInput placeholder="eg: BTech" [formControl]="degree" required>
                                 </mat-form-field>
                             </td>
+                            <td><mat-icon>layers</mat-icon></td>
                         </tr>
                         <tr>
                             <td>Branch:</td>
@@ -120,15 +153,17 @@
                                 <mat-form-field>
                                     <mat-label>Enter your branch</mat-label>
                                     <input matInput [formControl]="branch" required>
-                                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                                 </mat-form-field>
                             </td>
+                            <td><mat-icon>legend_toggle</mat-icon></td>
                         </tr>
                     </table>
                 </div>
-                <div>
-                    <button mat-raised-button color="warn" (click)="proceedtoPSD()">Back</button>
-                    <button mat-raised-button color="primary" (click)="proceedToPD()">Proceed</button>
+                <div class="inputErr" *ngIf="inputError">{{errorMsg}}</div>
+                <div style="flex-direction: row;display: flex; justify-content: space-between;" >
+                    <button mat-raised-button color="warn" class="back" (click)="proceedtoPSD()">Back</button>
+                   
+                    <button mat-raised-button color="primary" (click)="proceedToPD()" class="proceed">Proceed</button>
                 </div>
             </div>
             <div [hidden]="professionalDetails">
@@ -176,9 +211,6 @@
                                     +
                                 </button>
                             </td>
-                            <!-- <td><button mat-mini-fab color="primary" (click)="addskill()">
-                            <mat-icons>add</mat-icon>
-                         </button></td>  -->
 
                         </tr>
                         </td>
@@ -198,22 +230,22 @@
                         </tr>
                     </table>
                 </div>
-                <div>
-                    <button mat-raised-button color="warn" (click)="proceedToED()">Back</button>
-                    <button mat-raised-button color="primary" (click)="proceedtoSubmit()">Proceed</button>
+                <div style="flex-direction: row;display: flex; justify-content: space-between;">
+                    <button mat-raised-button color="warn" class="back" (click)="proceedToED()">Back</button>
+                    <button mat-raised-button color="primary" class="proceed" (click)="proceedtoSubmit()">Proceed</button>
                 </div>
             </div>
             <div [hidden]="submitform">
                 <div class="warning">* Please Confirm Entered Details</div>
                  <div>
                   <div class="confirmDetailsCategory">Personal Details</div>
-                    <table>
+                    <table class="displayTable">
                         <tr>
                             <td>Name:</td>
-                            <td>{{gradFirstName.value}}</td>
-                            <td>{{gradMiddleName.value}}</td>
-                            <td>{{gradLastName.value}}</td>
+                            <td>{{gradFirstName.value}}&nbsp;&nbsp;&nbsp;
+                            {{gradMiddleName.value}}&nbsp;&nbsp;&nbsp;{{gradLastName.value}}</td>
                         </tr>
+                        
                         <tr>
                             <td>Email:</td>
                             <td>{{email.value}}</td>
@@ -224,18 +256,18 @@
                         </tr>
                         <tr>
                             <td>Address:</td>
-                            <td>
-                            <tr>
-                                <td>{{street.value}}</td>
-                                <td>{{city.value}}</td>
-                                <td>{{state.value}}</td>
-                            </tr>
+                                <td>
+                                {{houseNo.value}} ,&nbsp;&nbsp; 
+                                 {{street.value}} ,&nbsp;&nbsp; 
+                                {{city.value}} ,&nbsp;&nbsp;
+                                {{state.value}},&nbsp;&nbsp;
+                                {{zipcode.value}} 
                             </td>
                         </tr>
                     </table>
 
                       <div class="confirmDetailsCategory">Educational Details</div>
-                    <table>
+                    <table class="displayTable">
                         <tr>
                             <td>Institute:</td>
                             <td>{{institute.value}}</td>
@@ -251,7 +283,7 @@
                     </table>
 
                    <div class="confirmDetailsCategory">Professional Details</div>
-                    <table>
+                    <table class="displayTable">
                          <tr>
                             <td>Date of Joining:</td>
                             <td>{{dateOfJoining.value}}</td>
@@ -266,7 +298,7 @@
                                 <table>
                                     <tr *ngFor="let skill of skills">
                                         <td >
-                                           {{skill}}
+                                           {{skill.skillName}}
                                         </td>
                                     </tr>
                                 </table>
@@ -274,9 +306,9 @@
                         </tr>
                     </table> 
                 </div>
-                <div>
-                    <button mat-raised-button color="warn" (click)="proceedToPD()">Change Details</button>
-                    <button mat-raised-button color="primary" (click)="Submit()">Add Candidate</button>
+                <div style="flex-direction: row;display: flex; justify-content: space-between;">
+                    <button mat-raised-button color="warn" class="back" (click)="proceedToPD()">Change Details</button>
+                    <button mat-raised-button color="primary" class="proceed" (click)="Submit()">Add Candidate</button>
                 </div>
             </div>
         </form>

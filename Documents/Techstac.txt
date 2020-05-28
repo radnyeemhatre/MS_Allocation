@@ -1,0 +1,22 @@
+TECHSTACK
+1-springboot
+2-entity classes =>hibernate =>models
+3-service
+4-controller
+5-repository=>jdbc template
+6-MySQL
+
+
+requestBody=json
+responseBody= json
+
+APIS
+- create grad => POST => /addGrad
+		=>	requestBody => json
+- get grad by id => =>/grad/{id}
+- update grad => =>/updateGrad
+			=> requestBody
+-delete by id => =>/delete/{id}
+
+add delete update address
+add skill

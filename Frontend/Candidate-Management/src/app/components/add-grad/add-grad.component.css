@@ -88,3 +88,16 @@ table{
       color: rgb(238, 27, 27);
       font-size: 12px;
   }
+  mat-radio-button{
+      margin-right: 25%;
+  }
+  .inputErr{
+      margin-left: 10%;
+    color: rgb(238, 27, 27);
+    font-size: 12px;
+  }
+  .displayTable{
+    display: table;
+    border-collapse: separate;
+    border-spacing: 20px;
+  }

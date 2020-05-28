@@ -1,0 +1,53 @@
+grad_details:
+		{
+						createdBy:
+						updatedBy:
+						createdOn:
+						updatedOn:
+						gradId:
+						gradFirstName:
+						gradMiddleName:
+						gradLastName:
+						gender:
+						email:
+						contact:
+						institute:
+						degree:
+						branch:
+						joiningDate:
+						joiningLocation:
+						skills:[
+							{
+								skillId:
+							}
+							{
+								skillId:
+							}
+							]
+						address:[
+								address_details,
+								address_details
+								]
+						feedback:
+				}
+skill:{
+		createdBy:
+		createdOn:
+		skillId:
+		skillName:
+		}
+		
+address:{
+			createdBy:
+			updatedBy:
+			createdOn:
+			updatedOn:
+			gradID:
+			addressId:
+			houseNo:
+			street:
+			city:
+			state:
+			zipCode:
+		}
+		

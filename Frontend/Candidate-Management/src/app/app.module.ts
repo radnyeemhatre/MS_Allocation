@@ -20,6 +20,7 @@ import { MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angula
 import {MatButtonModule,MatIconModule} from '@angular/material';
 import {MatProgressBarModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
+import { MatRadioModule } from '@angular/material';
 
 export function socialConfigs() {  
   const config = new AuthServiceConfig(  
@@ -57,7 +58,8 @@ export function socialConfigs() {
     MatIconModule,
     MatButtonModule,
     MatProgressBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [
     AuthService,  

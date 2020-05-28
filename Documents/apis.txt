@@ -1,0 +1,76 @@
+APIS
+
+GRAD
+
+-add new grad =>POST
+	api:/addGrad
+	requestBody:grad_details
+	responseBody:
+	{
+		responseMessage:"Success/Failure"
+	}
+-update grad =>POST
+	api:/updateGrad
+	requestBody:grad_details
+	responseBody:grad_details
+
+-delete grad => POST / DELETE
+	api:/deleteGrad
+	requestBody:{gradId}
+	responseBody:
+	{
+		responseMessage:"Success/Failure"
+	}
+
+-get grad by Id => GET
+	api:/gradById/{id}
+	responseBody:grad_details
+
+-get all grads =>GET
+	api:/grads
+	responseBody:[grad_details,grad_details,...] 
+	
+ADDRESS
+
+-add new address =>POST
+	api:/addAddress
+	requestBody:address_details
+	responseBody:
+	{
+		responseMessage:"Success/Failure"
+	}
+	
+-update address
+	api:/updateAddress
+	responseBody:address_details
+	requestBody:address_details
+
+- delete address
+	api:/deleteAddress
+	requestBody:{addressId:}
+	responseBody:
+	{
+		responseMessage:"Success/Failure"
+	}
+
+-get address => POST
+ api:/getAddress
+ requestBody:{gradId}
+ responseBody:[address_details]
+ 
+SKILL
+
+-add new Skill =>POST
+	api:/addSkill
+	requestBody:skill
+	responseBody:
+	{
+		responseMessage:"Success/Failure"
+	}
+-get skills for grad =>GET
+ api:/getSkillsByGrad/{id}
+ responseBody:[skill,skill,...]
+ 
+-get all skills =>GET
+	api:/skills
+	responseBody:[skill,skill,...]

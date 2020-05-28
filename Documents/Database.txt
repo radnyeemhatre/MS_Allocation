@@ -1,0 +1,41 @@
+User
+userEmail,
+token,
+refershToken
+
+Grad_details
+
+userEmail(foreign)
+createdOn,(dateTime)
+grad_id,(primary key)
+grad_first_name,
+grad_middle_name,
+grad_last_name,
+gender,
+email,
+contact,
+institute,
+dergee,
+branch,
+joiningDate,
+joiningLocation,
+feedback(can be null)
+
+Address
+
+grad_id,(foreign key)
+address_id,(primary key)
+street,
+city,
+state,
+
+Grad_Skill
+
+GS_id(primary)*
+grad_id,(foreign_id),
+skill_id(f k)
+
+Skills
+
+skill_id
+skill_name
