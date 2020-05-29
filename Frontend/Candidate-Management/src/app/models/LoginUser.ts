@@ -1,9 +1,11 @@
 export class LoginUser {  
     email: string;  
     token: string;  
-    constructor(email,token){
+    name:string;
+    constructor(email,name,token){
         this.email=email;
         this.token=token;
+        this.name=name
     }
     
 }

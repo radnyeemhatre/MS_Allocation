@@ -9,7 +9,7 @@ url;
   constructor(private http: HttpClient) { }
   Savesresponse(responce)
   {
-    let loginUser=new LoginUser(responce.email,responce.token)
+    let loginUser=new LoginUser(responce.email,responce.name,responce.token)
     console.log("service");
     this.url =  '/api/login';
     return this.http.post(this.url,loginUser);

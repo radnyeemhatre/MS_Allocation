@@ -46,6 +46,6 @@ Savesresponse(socialusers: Socialusers) {
     
     // this.router.navigate([`/Dashboard`]);  
  })  
- window.location.href = 'addGrad';
+ //window.location.href = 'addGrad';
 }  
 }

@@ -1,4 +1,4 @@
-package com.backend.msallocation.model;
+package com.backend.msallocation.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +12,5 @@ import lombok.Setter;
 public class LoginUser {
 	private String email;
 	private String token;
-	
-	
+	private String name;	
 }
