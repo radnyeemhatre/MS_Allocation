@@ -17,12 +17,7 @@ grad_details:
 						joiningDate:
 						joiningLocation:
 						skills:[
-							{
-								skillId:
-							}
-							{
-								skillId:
-							}
+							skill,skill...
 							]
 						address:[
 								address_details,

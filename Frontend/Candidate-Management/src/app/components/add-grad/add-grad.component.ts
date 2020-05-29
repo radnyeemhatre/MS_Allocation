@@ -143,7 +143,7 @@ checkProfessionalDetails(){
     this.inputError = true;
     this.errorMsg = " * Enter Joining Date";
   }
-  else if (this.joiningLocation.hasError('required') || this.joiningLocation.hasError('maxlength')||this.nameregx.test(this.joiningLocation) ) {
+  else if (this.joiningLocation.hasError('required') || this.joiningLocation.hasError('maxlength')||this.nameregx.test(this.joiningLocation.value) ) {
     this.inputError = true;
     this.errorMsg = " * Enter Valid Joining Location";
   }

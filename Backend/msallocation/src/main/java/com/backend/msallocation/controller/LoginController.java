@@ -15,8 +15,6 @@ public class LoginController {
 	@PostMapping("/login")
 	public LoginUser LoginUser(@RequestBody LoginUser loginUser) {
 		System.out.println(loginUser.getEmail());
-		//return "hii";
-		//LoginUser returnUser=new LoginUser(loginuser, token)
 		return loginUser;
 	}
 	@GetMapping("/trial")

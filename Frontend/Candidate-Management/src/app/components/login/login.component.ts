@@ -43,8 +43,9 @@ Savesresponse(socialusers: Socialusers) {
     // this.response = res.userDetail;  
     // localStorage.setItem('socialusers', JSON.stringify( this.socialusers));  
     // console.log(localStorage.setItem('socialusers', JSON.stringify(this.socialusers)));  
-    // window.location.href = 'addGrad';
+    
     // this.router.navigate([`/Dashboard`]);  
  })  
+ window.location.href = 'addGrad';
 }  
 }
